@@ -2,35 +2,43 @@
 <html>
     <head>
       <meta charset="utf-8">
-      <title>Chronometre</title>
+      <title>Chronomètre</title>
 
       <!-- css -->
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <header>
+            <i class="fa fa-clock-o" style="font-size:36px;color:#c6ecd9";></i>
+            <h1>Chronomètre en ligne</h1>
 
+
+
+      </header>
+    </head>
+    <body>
 
       <script language="JavaScript">
       var time = 0;
       var execute = 0;
 
-      function startPause(){
+      function StartPause(){
         if(execute == 0){
             execute = 1;
             ajout();
-            document.getElementById("startPause").innerHTML = "Stop";
+            document.getElementById("StartPause").innerHTML = "Pause";
             }else{
             execute = 0;
-            document.getElementById("startPause").innerHTML = "start";
+            document.getElementById("StartPause").innerHTML = "Start";
             }
         }
 
-      function reinitialiser(){
-        running = 0;
-        time = 0;
-    /*pour remettre à 0 le compteur*/
-        execute = 0;
-        document.getElementById("start/Pause").innerHTML = "Start/Pause";
+      function Reinitialiser(){
+    /*pour remettre à 0 le compteur (ordre)*/
+      time = 0;
         document.getElementById("output").innerHTML = "00:00:00";
+        document.getElementById("Start/Pause").innerHTML = "Start/Pause";
+
       }
 
 
@@ -56,13 +64,13 @@
         }
 
       </script>
-    </head>
-    <body>
-      <div class="container">
+
+
+      <div class="chrono">
         <strong><span id="output">00:00:00</span></strong>
-        <div type="button" class="btn">
-        <button id="startPause" onclick="startPause()">Start</button>
-        <button onclick="reinitialiser()">Reinitialiser</button>
+        <div class="boutonsdecontrôle">
+        <button id="StartPause" onclick="StartPause()">Start</button>
+        <button id="Reinitialiser" onclick="Reinitialiser()">Reinitialiser</button>
         </div>
       </div>
    </body>
