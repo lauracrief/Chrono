@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>Chronometre</title>
+
+      <!-- css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+
+
+      <script language="JavaScript">
+      var time = 0;
+      var execute = 0;
+
+      function startPause(){
+        if(execute == 0){
+            execute = 1;
+            ajout();
+            document.getElementById("startPause").innerHTML = "Stop";
+            }else{
+            execute = 0;
+            document.getElementById("startPause").innerHTML = "start";
+            }
+        }
+
+      function reinitialiser(){
+        running = 0;
+        time = 0;
+    /*pour remettre à 0 le compteur*/
+        execute = 0;
+        document.getElementById("start/Pause").innerHTML = "Start/Pause";
+        document.getElementById("output").innerHTML = "00:00:00";
+      }
+
+
+      function ajout(){
+        if(execute == 1){
+    /* The setTimeout() method calls a function or evaluates an expression after a specified number of milliseconds.*/
+          setTimeout(function(){
+            var mins = Math.floor(time/10/60);
+            var secs = Math.floor(time/10 % 60);
+            var dixieme= time % 10;
+            time++;
+
+            if(mins < 10){
+              mins = "0" + mins;
+              }
+            if(secs < 10){
+              secs = "0" + secs;
+              }
+          document.getElementById("output").innerHTML = mins + ":" + secs + ":" + "0" + dixieme;
+          ajout();
+          },100);
+          }
+        }
+
+      </script>
+    </head>
+    <body>
+      <div class="container">
+        <strong><span id="output">00:00:00</span></strong>
+        <div type="button" class="btn">
+        <button id="startPause" onclick="startPause()">Start</button>
+        <button onclick="reinitialiser()">Reinitialiser</button>
+        </div>
+      </div>
+   </body>
+</html>
+
+
+      </body>
+  </html>

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+
+
+body{
+  font-family:sans-serif;
+}
+ .button{
+ }
+
+.button:active {
+  background: red;
+  text-decoration: none;
+}
+
+#output{
+    width:120px;
+    height:25px;
+    background-color: grey;
+    border: solid #999;
+   }
